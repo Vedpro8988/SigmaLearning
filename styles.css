@@ -299,112 +299,57 @@ body {
 }
 
 .program-card {
-    background: white;
+    background: #fff;
     border-radius: 10px;
+    padding: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    margin-bottom: 40px;
-}
-
-.program-icon {
-    font-size: 3rem;
-    color: #3498db;
-    margin-bottom: 20px;
+    transition: transform 0.3s ease;
     text-align: center;
 }
 
-.program-card h2 {
-    color: #2c3e50;
-    font-size: 2rem;
-    margin-bottom: 20px;
-    text-align: center;
+.program-card:hover {
+    transform: translateY(-5px);
 }
 
-.program-details {
-    margin-top: 30px;
-}
-
-.program-details h3 {
-    color: #2c3e50;
-    font-size: 1.5rem;
+.program-card i {
+    font-size: 2.5rem;
+    color: #4a90e2;
     margin-bottom: 15px;
 }
 
-.program-details ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.program-details ul li {
-    margin-bottom: 10px;
-    padding-left: 25px;
-    position: relative;
-}
-
-.program-details ul li:before {
-    content: "✓";
-    color: #3498db;
-    position: absolute;
-    left: 0;
-}
-
-.program-levels {
-    margin-top: 30px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.level-card {
-    background: #f8f9fa;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.level-card h4 {
-    color: #3498db;
-    font-size: 1.2rem;
+.program-card h3 {
+    color: #333;
     margin-bottom: 10px;
 }
 
-.level-card p {
+.program-card p {
     color: #666;
     margin-bottom: 15px;
 }
 
-.level-card ul {
-    list-style-type: none;
-    padding-left: 0;
+.program-card ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
 }
 
-.level-card ul li {
-    margin-bottom: 8px;
-    padding-left: 20px;
-    position: relative;
+.program-card ul li {
+    color: #666;
+    margin-bottom: 5px;
 }
 
-.level-card ul li:before {
-    content: "•";
-    color: #3498db;
-    position: absolute;
-    left: 0;
-}
-
-.program-button {
+.program-card .cta-button {
     display: inline-block;
-    background-color: #3498db;
-    color: white;
-    padding: 12px 30px;
-    border-radius: 5px;
+    padding: 10px 20px;
+    background-color: #4a90e2;
+    color: #fff;
     text-decoration: none;
-    font-weight: bold;
-    margin-top: 20px;
-    transition: background-color 0.3s;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
-.program-button:hover {
-    background-color: #2980b9;
+.program-card .cta-button:hover {
+    background-color: #357abd;
 }
 
 /* Contact Form Styles */
