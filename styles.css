@@ -7,6 +7,8 @@
     --text-color: #1F2937;
     --text-color-light: #6B7280;
     --white: #FFFFFF;
+    --light-bg: #f8f9fa;
+    --secondary-color: #0D9488;
 }
 
 /* Reset and Base Styles */
@@ -333,73 +335,57 @@ body {
 }
 
 .program-section:nth-child(even) {
-    background-color: white;
+    background-color: var(--light-bg);
 }
 
-.program-section .program-card {
+.program-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.program-card {
     background: white;
     border-radius: 10px;
     padding: 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
+    text-align: center;
 }
 
-.program-section .program-icon {
+.program-card:hover {
+    transform: translateY(-5px);
+}
+
+.program-card i {
     font-size: 2.5rem;
     color: var(--primary-color);
     margin-bottom: 1rem;
 }
 
-.program-section h2 {
+.program-card h3 {
     color: var(--primary-color);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
-.program-section .program-details {
-    margin-top: 1.5rem;
-}
-
-.program-section .program-details h3 {
+.program-card p {
     color: var(--text-color);
-    margin-bottom: 1rem;
-}
-
-.program-section .program-details p {
-    margin-bottom: 1rem;
-    line-height: 1.6;
-}
-
-.program-section .program-details ul {
-    list-style: none;
-    padding-left: 0;
     margin-bottom: 1.5rem;
 }
 
-.program-section .program-details ul li {
-    margin-bottom: 0.5rem;
-    padding-left: 1.5rem;
-    position: relative;
-}
-
-.program-section .program-details ul li::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: var(--primary-color);
-}
-
-.program-section .program-info {
+.program-info {
     background: var(--light-bg);
     padding: 1rem;
     border-radius: 5px;
     margin: 1.5rem 0;
 }
 
-.program-section .program-info p {
+.program-info p {
     margin-bottom: 0.5rem;
 }
 
-.program-section .program-button {
+.program-button {
     display: inline-block;
     padding: 0.8rem 1.5rem;
     background: var(--primary-color);
@@ -409,7 +395,7 @@ body {
     transition: background-color 0.3s;
 }
 
-.program-section .program-button:hover {
+.program-button:hover {
     background: var(--secondary-color);
 }
 
@@ -591,10 +577,6 @@ body {
 }
 
 /* Make program cards consistent */
-.program-section {
-    padding: 4rem 0;
-}
-
 .program-section .program-card {
     background: white;
     border-radius: 10px;
@@ -636,15 +618,7 @@ body {
 
 .program-section .program-details ul li {
     margin-bottom: 0.5rem;
-    padding-left: 1.5rem;
-    position: relative;
-}
-
-.program-section .program-details ul li::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: var(--primary-color);
+    padding-left: 0;
 }
 
 .program-section .program-info {
