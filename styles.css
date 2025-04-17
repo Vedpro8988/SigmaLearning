@@ -557,23 +557,16 @@ body {
     }
 }
 
-/* Remove bullets from lists in volunteer and donate sections */
-.program-levels .level-card ul {
+/* Remove bullets from all lists by default */
+ul {
     list-style: none;
     padding-left: 0;
 }
 
-.program-levels .level-card ul li {
-    margin-bottom: 0.5rem;
-    padding-left: 1.5rem;
-    position: relative;
-}
-
-.program-levels .level-card ul li::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: var(--primary-color);
+/* Keep bullets only for home page programs section */
+.program-cards .program-content ul {
+    list-style: disc;
+    padding-left: 1.5em;
 }
 
 /* Make program cards consistent */
