@@ -1,3 +1,16 @@
+/* Color Variables */
+:root {
+    --primary-color: #1E3A8A;
+    --accent-color: #14B8A6;
+    --accent-color-alt: #FBBF24;
+    --background-color: #F9FAFB;
+    --text-color: #1F2937;
+    --text-color-light: #6B7280;
+    --white: #FFFFFF;
+    --light-bg: #f8f9fa;
+    --secondary-color: #0D9488;
+}
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -6,8 +19,10 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', Arial, sans-serif;
     line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
 }
 
 .container {
@@ -18,19 +33,19 @@ body {
 
 /* Navigation */
 .navbar {
-    background-color: #fff;
+    background-color: var(--white);
     padding: 1rem;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
     font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
+    font-weight: 700;
+    color: var(--primary-color);
 }
 
 .nav-links {
@@ -45,69 +60,92 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    color: #333;
+    color: var(--text-color);
     font-weight: 500;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #3498db;
+    color: var(--accent-color);
 }
 
 .donate-btn {
-    background-color: #e74c3c;
-    color: white !important;
+    background-color: var(--accent-color-alt);
+    color: var(--text-color) !important;
     padding: 0.5rem 1rem;
     border-radius: 5px;
     transition: background-color 0.3s;
 }
 
 .donate-btn:hover {
-    background-color: #c0392b;
+    background-color: #F59E0B;
 }
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('hero-bg.jpg');
+    background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.8)), url('images/hero-bg.jpg');
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: white;
+    color: var(--white);
     padding-top: 80px;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.8));
+    z-index: 1;
 }
 
 .hero-content {
+    position: relative;
+    z-index: 2;
     max-width: 800px;
-    padding: 0 20px;
+    padding: 0 2rem;
 }
 
 .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
 }
 
 .hero p {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .cta-button {
     display: inline-block;
-    background-color: #3498db;
-    color: white;
+    background-color: var(--accent-color);
+    color: var(--white);
     padding: 1rem 2rem;
-    border-radius: 5px;
+    border-radius: 8px;
     text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .cta-button:hover {
-    background-color: #2980b9;
+    background-color: #0D9488;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* Quick Links Section */
@@ -196,20 +234,20 @@ body {
 }
 
 .team-member {
-    background: white;
+    background: var(--white);
     padding: 2rem;
-    border-radius: 10px;
+    border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
 .member-image {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto 1rem;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     overflow: hidden;
-    border: 3px solid #3498db;
+    margin: 0 auto 1.5rem;
+    border: 4px solid var(--accent-color);
 }
 
 .member-image img {
@@ -236,9 +274,9 @@ body {
 
 /* Footer */
 .footer {
-    background-color: #333;
-    color: white;
-    padding: 3rem 0 1rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 4rem 0 2rem;
 }
 
 .footer-content {
@@ -250,24 +288,27 @@ body {
 
 .footer-logo {
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 1.5rem;
 }
 
 .social-links a {
-    color: white;
+    color: var(--white);
     margin-left: 1rem;
     font-size: 1.2rem;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
 }
 
 .social-links a:hover {
-    color: #3498db;
+    color: var(--accent-color);
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 2rem;
 }
 
 /* Programs Page Styles */
@@ -290,18 +331,24 @@ body {
 }
 
 .program-section {
-    padding: 60px 0;
-    background-color: #f8f9fa;
+    padding: 4rem 0;
 }
 
 .program-section:nth-child(even) {
-    background-color: white;
+    background-color: var(--light-bg);
+}
+
+.program-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
 .program-card {
-    background: #fff;
+    background: white;
     border-radius: 10px;
-    padding: 20px;
+    padding: 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
     text-align: center;
@@ -313,43 +360,43 @@ body {
 
 .program-card i {
     font-size: 2.5rem;
-    color: #4a90e2;
-    margin-bottom: 15px;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
 }
 
 .program-card h3 {
-    color: #333;
-    margin-bottom: 10px;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
 }
 
 .program-card p {
-    color: #666;
-    margin-bottom: 15px;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
 }
 
-.program-card ul {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 20px;
+.program-info {
+    background: var(--light-bg);
+    padding: 1rem;
+    border-radius: 5px;
+    margin: 1.5rem 0;
 }
 
-.program-card ul li {
-    color: #666;
-    margin-bottom: 5px;
+.program-info p {
+    margin-bottom: 0.5rem;
 }
 
-.program-card .cta-button {
+.program-button {
     display: inline-block;
-    padding: 10px 20px;
-    background-color: #4a90e2;
-    color: #fff;
+    padding: 0.8rem 1.5rem;
+    background: var(--primary-color);
+    color: white;
     text-decoration: none;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
 }
 
-.program-card .cta-button:hover {
-    background-color: #357abd;
+.program-button:hover {
+    background: var(--secondary-color);
 }
 
 /* Contact Form Styles */
@@ -433,5 +480,290 @@ body {
     .member-image {
         width: 120px;
         height: 120px;
+    }
+}
+
+/* Join Our Classes Section */
+.join-classes {
+    padding: 4rem 0;
+    background-color: #f8f9fa;
+}
+
+.join-classes .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.join-classes h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #333;
+    font-size: 2.5rem;
+}
+
+.class-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.class-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.class-card:hover {
+    transform: translateY(-5px);
+}
+
+.class-card h3 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.class-card p {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.class-card .cta-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.class-card .cta-button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .class-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .join-classes h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Remove bullets from lists in volunteer and donate sections */
+.program-levels .level-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.program-levels .level-card ul li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.program-levels .level-card ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+/* Make program cards consistent */
+.program-section .program-card {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.program-section .program-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.program-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.program-section .program-details {
+    margin-top: 1.5rem;
+}
+
+.program-section .program-details h3 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.program-section .program-details p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.program-section .program-details ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+}
+
+.program-section .program-details ul li {
+    margin-bottom: 0.5rem;
+    padding-left: 0;
+}
+
+.program-section .program-info {
+    background: var(--light-bg);
+    padding: 1rem;
+    border-radius: 5px;
+    margin: 1.5rem 0;
+}
+
+.program-section .program-info p {
+    margin-bottom: 0.5rem;
+}
+
+.program-section .program-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.program-section .program-button:hover {
+    background: var(--secondary-color);
+}
+
+/* Home Page Programs Section */
+.programs {
+    padding: 5rem 0;
+    background-color: var(--light-bg);
+}
+
+.programs .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.programs .section-header h2 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.programs .section-header p {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.program-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.program-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.program-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.program-icon {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.program-icon i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    background: rgba(30, 58, 138, 0.1);
+    padding: 1.5rem;
+    border-radius: 50%;
+}
+
+.program-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.program-content h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.program-content p {
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.program-info {
+    background: var(--light-bg);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.program-info p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.program-card .cta-button {
+    margin-top: auto;
+    align-self: flex-start;
+    padding: 0.8rem 1.5rem;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.program-card .cta-button:hover {
+    background: var(--secondary-color);
+}
+
+@media (max-width: 768px) {
+    .programs {
+        padding: 3rem 0;
+    }
+    
+    .programs .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .programs .section-header p {
+        font-size: 1rem;
+    }
+    
+    .program-cards {
+        grid-template-columns: 1fr;
     }
 } 
