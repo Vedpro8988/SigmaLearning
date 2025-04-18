@@ -231,23 +231,31 @@ body {
 
 /* Team Members Styles */
 .team-members {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    gap: 2rem; /* Add spacing between team members */
+    justify-content: center; /* Center the team members */
     margin-top: 2rem;
 }
 
 .team-member {
+    flex: 1 1 calc(33.333% - 2rem); /* Ensure three members per row */
+    max-width: 300px; /* Limit the maximum width */
     background: var(--white);
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-5px); /* Add hover effect */
 }
 
 .member-image {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     overflow: hidden;
     margin: 0 auto 1.5rem;
@@ -274,6 +282,24 @@ body {
 .team-member p {
     color: #666;
     line-height: 1.6;
+}
+
+/* Responsive Design for Team Section */
+@media (max-width: 768px) {
+    .team-members {
+        flex-direction: column; /* Stack team members vertically */
+        gap: 2rem;
+    }
+
+    .team-member {
+        flex: 1 1 100%; /* Full width for smaller screens */
+        max-width: 100%;
+    }
+
+    .member-image {
+        width: 120px;
+        height: 120px;
+    }
 }
 
 /* Footer */
@@ -343,19 +369,20 @@ body {
 }
 
 .program-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 2rem;
-    margin-top: 2rem;
+    justify-content: space-between;
 }
 
 .program-card {
-    background: white;
+    flex: 1 1 calc(33.333% - 2rem); /* Three cards per row */
+    max-width: 300px;
+    background: var(--white);
+    padding: 1.5rem;
     border-radius: 10px;
-    padding: 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-    text-align: center;
 }
 
 .program-card:hover {
@@ -909,3 +936,59 @@ ul {
         gap: 2rem;
     }
 } 
+
+/* Footer Links Styling */
+.footer-links a {
+    color: var(--white); /* Make links white for better visibility */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color); /* Add hover effect */
+}
+
+
+/* Mobile Menu Styling */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+
+.nav-links.active {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: var(--white);
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+        text-align: center;
+    }
+}
+
+/* Highlight Section for About Us */
+.team-highlight {
+    background-color: var(--light-bg);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+}
