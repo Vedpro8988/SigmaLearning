@@ -1,14 +1,11 @@
 /* Color Variables */
 :root {
-    --primary-color: #1E3A8A;
-    --accent-color: #14B8A6;
-    --accent-color-alt: #FBBF24;
-    --background-color: #F9FAFB;
-    --text-color: #1F2937;
-    --text-color-light: #6B7280;
-    --white: #FFFFFF;
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --text-color: #2c3e50;
     --light-bg: #f8f9fa;
-    --secondary-color: #0D9488;
+    --white: #ffffff;
 }
 
 /* Reset and Base Styles */
@@ -47,9 +44,17 @@ body {
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
     color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 10px;
 }
 
 .nav-links {
@@ -87,7 +92,7 @@ body {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.8)), url('images/hero-bg.jpg');
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -147,7 +152,7 @@ body {
 }
 
 .cta-button:hover {
-    background-color: #0D9488;
+    background-color: #c0392b;
     transform: translateY(-2px);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
@@ -295,10 +300,12 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
+    border: 2px solid var(--secondary-color);
 }
 
 .program-card:hover {
     transform: translateY(-5px);
+    border-color: var(--accent-color);
 }
 
 .program-card i {
