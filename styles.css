@@ -231,26 +231,20 @@ body {
 
 /* Team Members Styles */
 .team-members {
-    display: flex; /* Use flexbox for layout */
-    flex-wrap: wrap; /* Allow wrapping for smaller screens */
-    gap: 2rem; /* Add spacing between team members */
-    justify-content: center; /* Center the team members */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
     margin-top: 2rem;
 }
 
 .team-member {
-    flex: 1 1 calc(33.333% - 2rem); /* Ensure three members per row */
-    max-width: 300px; /* Limit the maximum width */
     background: var(--white);
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.team-member:hover {
-    transform: translateY(-5px); /* Add hover effect */
+    max-width: 350px;
+    margin: 0 auto;
 }
 
 .member-image {
@@ -284,21 +278,84 @@ body {
     line-height: 1.6;
 }
 
-/* Responsive Design for Team Section */
+/* Program Cards Layout */
+.program-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.program-card {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.program-card:hover {
+    transform: translateY(-5px);
+}
+
+.program-card i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.program-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.program-card p {
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.program-info {
+    background: var(--light-bg);
+    padding: 1rem;
+    border-radius: 5px;
+    margin: 1.5rem 0;
+}
+
+.program-info p {
+    margin-bottom: 0.5rem;
+}
+
+.program-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.program-button:hover {
+    background: var(--secondary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .program-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
+    .program-cards {
+        grid-template-columns: 1fr;
+    }
+    
     .team-members {
-        flex-direction: column; /* Stack team members vertically */
-        gap: 2rem;
-    }
-
-    .team-member {
-        flex: 1 1 100%; /* Full width for smaller screens */
-        max-width: 100%;
-    }
-
-    .member-image {
-        width: 120px;
-        height: 120px;
+        grid-template-columns: 1fr;
     }
 }
 
@@ -366,68 +423,6 @@ body {
 
 .program-section:nth-child(even) {
     background-color: var(--light-bg);
-}
-
-.program-cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: space-between;
-}
-
-.program-card {
-    flex: 1 1 calc(33.333% - 2rem); /* Three cards per row */
-    max-width: 300px;
-    background: var(--white);
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.program-card:hover {
-    transform: translateY(-5px);
-}
-
-.program-card i {
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
-
-.program-card h3 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
-
-.program-card p {
-    color: var(--text-color);
-    margin-bottom: 1.5rem;
-}
-
-.program-info {
-    background: var(--light-bg);
-    padding: 1rem;
-    border-radius: 5px;
-    margin: 1.5rem 0;
-}
-
-.program-info p {
-    margin-bottom: 0.5rem;
-}
-
-.program-button {
-    display: inline-block;
-    padding: 0.8rem 1.5rem;
-    background: var(--primary-color);
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.program-button:hover {
-    background: var(--secondary-color);
 }
 
 /* Contact Form Styles */
