@@ -1,8 +1,8 @@
 /* Color Variables */
 :root {
-    --primary-color: #B22222; /* Deep red */
-    --secondary-color: #DAA520; /* Gold */
-    --accent-color: #FFD700; /* Yellow */
+    --primary-color: #FF0000; /* Bright red */
+    --secondary-color: #FF3333; /* Lighter red */
+    --accent-color: #FF6666; /* Even lighter red */
     --text-color: #000000; /* Black */
     --light-bg: #FFF8DC; /* Light yellow background */
     --white: #ffffff;
@@ -31,73 +31,96 @@ body {
 
 /* Navigation */
 .navbar {
-    background-color: var(--white);
-    padding: 1rem 2rem;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem 2rem;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
 }
 
 .logo {
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: var(--primary-color);
-    font-weight: 700;
-    font-size: 1.5rem;
-    transition: transform 0.3s ease;
-}
-
-.logo:hover {
-    transform: scale(1.05);
+    color: #333;
 }
 
 .logo img {
-    height: 45px;
-    margin-right: 12px;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    height: 40px;
+    margin-right: 10px;
 }
 
 .logo span {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 800;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .nav-links {
     display: flex;
-    gap: 2rem;
-    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 2rem;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: var(--text-color);
+    color: #333;
     font-weight: 500;
     transition: color 0.3s ease;
-    padding: 0.5rem 1rem;
 }
 
 .nav-links a:hover {
-    color: var(--primary-color);
+    color: #007bff;
 }
 
-.donate-button {
-    background-color: var(--secondary-color);
-    color: var(--text-color) !important;
+.donate-btn {
+    background-color: #007bff;
+    color: white !important;
     padding: 0.5rem 1rem;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
 }
 
-.donate-button:hover {
-    background-color: var(--accent-color);
+.donate-btn:hover {
+    background-color: #0056b3;
+    color: white !important;
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: white;
+        padding: 1rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links li {
+        margin: 0.5rem 0;
+    }
 }
 
 /* Hero Section */
